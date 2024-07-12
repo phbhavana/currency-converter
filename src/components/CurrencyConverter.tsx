@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 interface CurrencyConverterProps {
-  apiKey: string;
+  
 }
 
 interface ExchangeRates {
   [key: string]: number;
 }
 
-const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ apiKey }) => {
+const CurrencyConverter: React.FC<CurrencyConverterProps> = ( ) => {
   const [amount, setAmount] = useState<number>(1);
   const [fromCurrency, setFromCurrency] = useState<string>('USD');
   const [toCurrency, setToCurrency] = useState<string>('EUR');
@@ -19,7 +19,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ apiKey }) => {
   useEffect(() => {
     const fetchExchangeRates = async () => {
       try {
-        const response = await axios.get(`https://api.currencyconverterapi.com/v1/convert?q=${fromCurrency}_${toCurrency}&compact=ultra&apiKey=${apiKey}`);
+        const response = await axios.get(`https://api.currencyconverterapi.com/v1/convert?q=${fromCurrency}_${toCurrency}&compact=ultra&apiKey=${`5e923596a0-6e1520269e-sgibkh`}`);
         setExchangeRates(response.data);
       } catch (error) {
         console.error('Error fetching exchange rates:', error);
